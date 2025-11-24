@@ -366,6 +366,32 @@ const QA_PAIRS = [
     ],
     answer: "Spor yapmak mental sağlığım için çok önemli olduğunu düşünüyorum,sporu açarsak futbol basketbol oynamak ve haftada en az 3 kere koşu yapmaya özen gösteriyorum. Bilim ve Felsefe hakkında araştırma yapmayı,kitap okumayı seviyorum ayrıca dinler tarihi de sevdiğim alanlardan, Evrim biyolojisine büyük ilgi duyuyorum. Bunlar haricinde küçük bir çizgi roman koleksiyonum var .  "
 
+},
+{
+  patterns: [
+    "bize ne katabilirsin",
+    "ekibe ne katarsın",
+    "takıma ne katarsın",
+    "neden seni işe alalım",
+    "neden seni secelim",
+    "neden seni seçelim",
+    "neden seni tercih edelim",
+    "seni diger adaylardan ayiran",
+    "seni diğer adaylardan ayıran"
+  ],
+  answer:
+    "Ekibe hem teknik hem de kültürel açıdan katkı sağlayabileceğimi düşünüyorum. Teknik tarafta Java, JavaScript/React, Python ve Flutter ile projeler geliştirmiş durumdayım ve yeni teknolojilere hızlı adapte olabiliyorum. Erasmus ve Almanya deneyimim sayesinde uluslararası ekiplerde çalışma, farklı bakış açılarını anlama ve iletişim kurma konusunda rahatım. Sorumluluk almaktan çekinmem, işi sahiplenirim ve sürecin sadece kod yazmak değil; iletişim, planlama ve sürekli iyileştirme olduğunu bilerek hareket ederim."
+},
+{
+  patterns: [
+    "bizden beklentin ne",
+    "şirketten beklentin",
+    "pozisyondan beklentin",
+    "çalışma ortamından ne beklersin",
+    "işten beklentilerin"
+  ],
+  answer:
+    "Teknik olarak kendimi geliştirebileceğim, öğrenmenin desteklendiği ve geri bildirim kültürünün olduğu bir ortam benim için çok önemli. Ekibin bilgi paylaşımına açık olması, kod kalitesine ve iyi mühendislik pratiklerine önem verilmesi beni motive eder. Ayrıca, yapılan işin gerçekten kullanılan bir ürüne dönüşmesi ve kullanıcıya değer katması da benim için büyük bir motivasyon kaynağı."
 }
 ];
 
