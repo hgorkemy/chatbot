@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Halil Görkem Yiğit Bilgilendirici Chatbot</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <h1>Halil Görkem Yiğit Bilgilendirici Chatbot</h1>
+    <p class="subtitle">
+      Bu bot, <strong>Halil Görkem Yiğit</strong> hakkında sorularınızı yanıtlamak için hazırlanmıştır.
+      Teknik bilgiler, projeler, eğitim ve deneyim hakkında soru sorabilirsiniz.
+    </p>
+
+    <div id="chat-window"></div>
+
+    <form id="chat-form">
+      <input
+        type="text"
+        id="user-input"
+        placeholder="Görkem hakkında bir şey sor..."
+        autocomplete="off"
+      />
+      <button type="submit">Gönder</button>
+    </form>
+
+    <p class="note">
+      Not: Bu chatbot, önceden tanımlanmış bilgilerden yanıt üretir;
+      bilmediği bir şey olursa bunu açıkça söyler.
+    </p>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="bot.js"></script>
+</body>
+</html>
