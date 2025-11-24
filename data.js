@@ -171,7 +171,7 @@ const QA_PAIRS = [
       "data scientist"
     ],
     answer:
-      "Uzun vadeli hedefim Data Science ve Machine Learning alanında uzmanlaşmak. THWS’te aldığım derslerde veri analizi, temel ML kavramları ve modelleme konularına odaklandım. Şu anda Python ile veri analizi ve ML konularında kendimi geliştirmeye devam ediyorum ve bu alanda staj / iş fırsatlarıyla gerçek dünya problemleri üzerinde çalışmak istiyorum."
+      "Uzun vadeli hedefim Data Science ve Machine Learning alanında uzmanlaşmak. THWS’te aldığım derslerde veri analizi, temel ML kavramları ve modelleme konularına odaklandım. Şu anda Python ile veri analizi ve ML konularında kendimi geliştirmeye devam ediyorum ve bu alanda staj / iş fırsatlarıyla günümüz problemleri üzerinde çalışmak istiyorum."
   },
 
   // KARİYER HEDEFLERİ & GELECEK PLANLARI
@@ -188,7 +188,7 @@ const QA_PAIRS = [
       "hedef"
     ],
     answer:
-      "Kısa vadede Data Science veya yazılım geliştirme alanında, özellikle Almanya’da bir staj yaparak gerçek dünya projelerinde yer almak istiyorum. Uzun vadede ise Data Science / Machine Learning alanında uzmanlaşıp uluslararası bir şirkette veri odaklı ürünler geliştiren bir pozisyonda çalışmayı hedefliyorum."
+      "Kısa vadede Data Science veya yazılım geliştirme alanında, özellikle Almanya’da bir staj yaparak öenmli  projelerde yer almak istiyorum. Uzun vadede ise Data Science / Machine Learning alanında uzmanlaşıp uluslararası bir şirkette veri odaklı ürünler geliştiren bir pozisyonda çalışmayı hedefliyorum."
   },
 
   // STAJ & DENEYİM
