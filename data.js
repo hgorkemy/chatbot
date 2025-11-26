@@ -297,7 +297,7 @@ const QA_PAIRS = [
       "detaylı bilgi"
     ],
     answer:
-      "Özetle: Bilgisayar Mühendisliği öğrencisiyim, Java, JavaScript/React, Python ve Flutter ile projeler geliştirdim, Almanya’da THWS’te 6 aylık Erasmus deneyimim oldu ve Data Science / Machine Learning alanında kariyer hedefliyorum. Eğitim, projeler, teknik beceriler veya kariyer hedeflerim hakkında daha spesifik bir soru sorarsanız detaylı yanıt verebilirim."
+      "Özetle: Bilgisayar Mühendisliği öğrencisiyim, Java, JavaScript/React, Python ve Flutter ve ML ile ilgili projeler geliştirdim, Almanya’da THWS’te 6 aylık Erasmus deneyimim oldu ve Data Science / Machine Learning alanında kariyer hedefliyorum. Eğitim, projeler, teknik beceriler veya kariyer hedeflerim hakkında daha spesifik bir soru sorarsanız detaylı yanıt verebilirim."
   },
   {
   patterns: [
@@ -392,6 +392,31 @@ const QA_PAIRS = [
   ],
   answer:
     "Teknik olarak kendimi geliştirebileceğim, öğrenmenin desteklendiği ve geri bildirim kültürünün olduğu bir ortam benim için çok önemli. Ekibin bilgi paylaşımına açık olması, kod kalitesine ve iyi mühendislik pratiklerine önem verilmesi beni motive eder. Ayrıca, yapılan işin gerçekten kullanılan bir ürüne dönüşmesi ve kullanıcıya değer katması da benim için büyük bir motivasyon kaynağı."
+},
+{
+patterns: [
+  "ortalaman",
+  "gpa",
+  "not ortalaması",
+  "gno"
+],
+  answer:"3. sınıfın başı itibariyle not ortalamam 2.8  "
+
+
+},
+{
+  patterns: [
+    "maaş",
+    "maas",
+    "maaş beklentisi",
+    "maas beklentin",
+    "ücret",
+    "ücret beklentisi",
+    "salary",
+    "salary expectation"
+  ],
+  answer:
+    "Maaş beklentim pozisyona, şirketin sunduğu yan haklara ve çalışma modeline bağlı olarak esnek. Temelde önemli olan teknik olarak gelişebileceğim, değer katabileceğim ve uzun vadeli bir yol haritasına sahip bir ekipte yer almak. Bu yüzden süreç ilerlediğinde karşılıklı beklentileri konuşmayı tercih ederim."
 }
 ];
 
