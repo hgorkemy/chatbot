@@ -387,7 +387,7 @@ const QA_PAIRS_EN = [
       "why do you want germany",
       "work in germany",
       "germany career",
-      "germany goal"
+      "germany goals"
     ],
     answer:
       "Since I already had an education experience in Germany, I know and enjoy the working culture and daily life there. The tech ecosystem is strong, and I want to work in an international environment. That’s why I aim to continue my career in Germany, especially in Data Science or software development."
