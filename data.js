@@ -287,7 +287,8 @@ const QA_PAIRS_EN = [
       "java",
       "react",
       "flutter",
-      "python"
+      "python",
+      "skills"
     ],
     answer:
       "I mainly work with Java, Dart/Flutter, and Python. I have a strong foundation in data structures and algorithms through coursework and projects. I use Git & GitHub for version control, and I’ve started working with basic ML libraries in Python for Data Science."
@@ -403,7 +404,7 @@ const QA_PAIRS_EN = [
       "which projects"
     ],
     answer:
-      "I’ve built projects in both web and mobile areas. For example, a Flutter-based library app, an ML-based image completion project, and various data structures implementations for coursework. You can check my GitHub profile for more details."
+      "I’ve built projects in both web and mobile areas. For example, a Flutter-based library app, an ML-based image completion project, and various data structures implementations for coursework. You can check my GitHub profile(https://github.com/hgorkemy) for more details."
   },
 
   // GITHUB & PORTFOLIO
