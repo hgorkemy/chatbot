@@ -1,37 +1,40 @@
 <!DOCTYPE html>
-<html lang="tr">
-<head>
-  <meta charset="UTF-8" />
-  <title>Halil Görkem Yiğit Bilgilendirici Chatbot</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="app">
-    <h1>Halil Görkem Yiğit Bilgilendirici Chatbot</h1>
-    <p class="subtitle">
-      Bu bot, <strong>Halil Görkem Yiğit</strong> hakkında sorularınızı yanıtlamak için hazırlanmıştır.
-      Teknik bilgiler, projeler, eğitim ve deneyim hakkında soru sorabilirsiniz.
-    </p>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Görkem Chatbot</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="topbar">
+        <div class="title-area">
+          <h1 id="page-title">Halil Görkem Yiğit Informational Chatbot</h1>
+          <p id="page-subtitle">
+            Ask about education, projects, experience, and career goals.
+          </p>
+        </div>
 
-    <div id="chat-window"></div>
+        <button id="lang-toggle" class="lang-btn" aria-label="Toggle language">
+  Türkçe sohbet için basın
+</button>
+      </div>
 
-    <form id="chat-form">
-      <input
-        type="text"
-        id="user-input"
-        placeholder="Görkem hakkında bir şey sor..."
-        autocomplete="off"
-      />
-      <button type="submit">Gönder</button>
-    </form>
+      <div id="chat-window" class="chat-window"></div>
 
-    <p class="note">
-      Not: Bu chatbot, önceden tanımlanmış bilgilerden yanıt üretir;
-      bilmediği bir şey olursa bunu açıkça söyler.
-    </p>
-  </div>
+      <form id="chat-form" class="chat-form">
+        <input
+          id="user-input"
+          type="text"
+          placeholder="Ask something about Görkem..."
+          autocomplete="off"
+        />
+        <button type="submit" id="send-btn">Send</button>
+      </form>
+    </div>
 
-  <script src="data.js"></script>
-  <script src="bot.js"></script>
-</body>
+    <script src="data.js"></script>
+    <script src="bot.js"></script>
+  </body>
 </html>
