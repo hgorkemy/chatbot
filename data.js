@@ -54,10 +54,17 @@ const QA_PAIRS = [
       "genel bilgi",
       "kimdir",
       "cv özeti",
-      "özgeçmiş özeti"
+      "özgeçmiş özeti",
+      "tanıt",
+      "görkem kim",
+      "görkem kimdir",
+      "halil görkem",
+      "sen kimsin",
+      "kısaca anlat",
+      "kendinden bahset"
     ],
     answer:
-      "Ben Görkem, bilgisayar mühendisliği öğrencisiyim. Java, JavaScript/React, Python ve Flutter ile projeler geliştirdim. Almanya’da THWS’te 6 aylık Erasmus deneyimim oldu ve kariyerimi Data Science / Machine Learning odaklı olarak şekillendirmek istiyorum."
+      "Ben Görkem, bilgisayar mühendisliği öğrencisiyim. Java, JavaScript/React, Python ve Flutter ile projeler geliştirdim. Almanya'da THWS'te 6 aylık Erasmus deneyimim oldu ve kariyerimi Data Science / Machine Learning odaklı olarak şekillendirmek istiyorum."
   },
 
   {
@@ -71,10 +78,19 @@ const QA_PAIRS = [
       "bölüm",
       "hangi üniversite",
       "hangi universite",
-      "akademik"
+      "akademik",
+      "nerede okuyorsun",
+      "nerede okuyor",
+      "hangi okul",
+      "öğrenci",
+      "ogrenci",
+      "izmir ekonomi",
+      "eğitim durumu",
+      "egitim durumu",
+      "okuduğu yer"
     ],
     answer:
-      "İzmir Ekonomi Üniversitesinde Bilgisayar Mühendisliği lisans öğrencisiyim. Veri yapıları, algoritmalar,OOP, yazılım geliştirme ve web teknolojileri gibi temel bilgisayar mühendisliği derslerini aldım. Ayrıca Erasmus kapsamında Almanya’daki THWS’te 6 ay okudum ve burada Data Science / Machine Learning odaklı dersler ve projelerle kendimi geliştirdim."
+      "İzmir Ekonomi Üniversitesinde Bilgisayar Mühendisliği lisans öğrencisiyim. Veri yapıları, algoritmalar,OOP, yazılım geliştirme ve web teknolojileri gibi temel bilgisayar mühendisliği derslerini aldım. Ayrıca Erasmus kapsamında Almanya'daki THWS'te 6 ay okudum ve burada Data Science / Machine Learning odaklı dersler ve projelerle kendimi geliştirdim."
   },
 
   {
@@ -85,20 +101,53 @@ const QA_PAIRS = [
       "almanya'daki deneyim",
       "erasmus deneyimi",
       "erasmus süresi",
-      "kaç ay erasmus"
+      "kaç ay erasmus",
+      "yurt dışı deneyim",
+      "yurtdışı",
+      "yurt dışı eğitim",
+      "almanyada okudu",
+      "almanya eğitim",
+      "değişim programı",
+      "exchange"
     ],
     answer:
-      "6 aylık Erasmus programı ile Almanya’da, THWS (Technische Hochschule Würzburg-Schweinfurt)’te eğitim gördüm. Bu süreçte hem teknik anlamda (özellikle Data Science ve Machine Learning dersleri) hem de kültürel ve dil açısından kendimi geliştirdim."
+      "6 aylık Erasmus programı ile Almanya'da, THWS (Technische Hochschule Würzburg-Schweinfurt)'te eğitim gördüm. Bu süreçte hem teknik anlamda (özellikle Data Science ve Machine Learning dersleri) hem de kültürel ve dil açısından kendimi geliştirdim."
   },
 
   {
-    patterns: ["nerelisin", "nerede yaşıyorsun", "konum", "hangi şehirde", "hangi ülkede"],
+    patterns: [
+      "nerelisin",
+      "nerede yaşıyorsun",
+      "konum",
+      "hangi şehirde",
+      "hangi ülkede",
+      "nereli",
+      "memleket",
+      "şehir",
+      "sehir",
+      "nerede yaşıyor",
+      "yaşadığı yer"
+    ],
     answer:
-      "Aslen Aydınlıyım, eğitimim için İzmir’de yaşıyorum ve Almanya’da THWS’te 6 aylık Erasmus deneyimi yaşadım."
+      "Aslen Aydınlıyım, eğitimim için İzmir'de yaşıyorum ve Almanya'da THWS'te 6 aylık Erasmus deneyimi yaşadım."
   },
 
   {
-    patterns: ["hangi dilleri konuşuyorsun", "dil becerileri", "yabancı dil", "ingilizce seviyen", "almanca seviyen"],
+    patterns: [
+      "hangi dilleri konuşuyorsun",
+      "dil becerileri",
+      "yabancı dil",
+      "ingilizce seviyen",
+      "almanca seviyen",
+      "dil",
+      "diller",
+      "kaç dil",
+      "ingilizce",
+      "almanca",
+      "language",
+      "konuştuğu diller",
+      "yabanci dil"
+    ],
     answer:
       "Türkçe ana dilim. İngilizceyi profesyonel seviyede kullanabiliyorum. Almanca seviyem ise B1 ve Erasmus sürecimde aktif kullandım."
   },
@@ -110,31 +159,78 @@ const QA_PAIRS = [
       "tech stack",
       "framework",
       "hangi teknolojiler",
-      "java",
-      "react",
-      "flutter",
-      "python"
+      "programlama",
+      "programlama dili",
+      "yazılım dili",
+      "yazilim dili",
+      "beceri",
+      "beceriler",
+      "skill",
+      "skills",
+      "teknik beceri",
+      "hangi dilleri kullanıyorsun",
+      "kullandığı teknolojiler",
+      "hangi dillerde yazıyorsun"
     ],
     answer:
       "Ağırlıklı olarak Java,  Dart & Flutter ve Python ile çalışıyorum. Git & GitHub kullanıyorum. Data Science tarafında Python ile temel ML kütüphanelerine giriş yaptım."
   },
 
   {
-    patterns: ["data science", "veri bilimi", "machine learning", "ml", "yapay zeka", "ai", "veri analizi"],
+    patterns: [
+      "data science",
+      "veri bilimi",
+      "machine learning",
+      "ml",
+      "yapay zeka",
+      "ai",
+      "veri analizi",
+      "makine öğrenmesi",
+      "makine ogrenmesi",
+      "deep learning",
+      "derin öğrenme"
+    ],
     answer:
-      "Uzun vadeli hedefim Data Science ve Machine Learning alanında uzmanlaşmak. THWS’te aldığım derslerde veri analizi, temel ML kavramları ve modelleme konularına odaklandım."
+      "Uzun vadeli hedefim Data Science ve Machine Learning alanında uzmanlaşmak. THWS'te aldığım derslerde veri analizi, temel ML kavramları ve modelleme konularına odaklandım."
   },
 
   {
-    patterns: ["kariyer hedefi", "kariyer planı", "gelecek planların", "5 yıl sonra", "uzun vadeli hedef", "hedeflerin"],
+    patterns: [
+      "kariyer hedefi",
+      "kariyer planı",
+      "gelecek planların",
+      "5 yıl sonra",
+      "uzun vadeli hedef",
+      "hedeflerin",
+      "hedef",
+      "hedefler",
+      "kariyer",
+      "gelecek planı",
+      "ne olmak istiyorsun",
+      "nereye varmak istiyorsun",
+      "amaç",
+      "amacın"
+    ],
     answer:
-      "Kısa vadede Almanya’da Data Science veya yazılım geliştirme odaklı bir staj hedefliyorum. Uzun vadede ise DS/ML alanında uzmanlaşıp uluslararası bir şirkette çalışmak istiyorum."
+      "Kısa vadede Almanya'da Data Science veya yazılım geliştirme odaklı bir staj hedefliyorum. Uzun vadede ise DS/ML alanında uzmanlaşıp uluslararası bir şirkette çalışmak istiyorum."
   },
 
   {
-    patterns: ["staj", "intern", "deneyim", "iş tecrübesi", "tecrübe"],
+    patterns: [
+      "staj",
+      "intern",
+      "deneyim",
+      "iş tecrübesi",
+      "tecrübe",
+      "is tecrubesi",
+      "çalışma deneyimi",
+      "calisma deneyimi",
+      "iş deneyimi",
+      "internship",
+      "staj yaptın mı"
+    ],
     answer:
-      "Şu anda özellikle Almanya’da, Data Science veya yazılım geliştirme odaklı bir staj yapmayı hedefliyorum. Ekip çalışması içinde sorumluluk almayı önemsiyorum."
+      "Şu anda özellikle Almanya'da, Data Science veya yazılım geliştirme odaklı bir staj yapmayı hedefliyorum. Ekip çalışması içinde sorumluluk almayı önemsiyorum."
   },
 
   {
@@ -162,13 +258,35 @@ const QA_PAIRS = [
   },
 
   {
-    patterns: ["proje", "projelerin", "neler yaptın", "örnek proje", "hangi projeler"],
+    patterns: [
+      "proje",
+      "projelerin",
+      "neler yaptın",
+      "örnek proje",
+      "hangi projeler",
+      "projeler",
+      "ne yaptın",
+      "geliştirdiğin",
+      "yaptığın işler",
+      "çalışmalar"
+    ],
     answer:
-      "Flutter ile bir kütüphane uygulaması ve ML ile resim tamamlama projesi gibi çalışmalar yaptım. GitHub profilimde detaylarını inceleyebilirsiniz."
+      "Flutter ile bir kütüphane uygulaması , ML ile resim tamamlama projesi, Imdb tarzı film puanlama sitesi,java ile oop temelleriyle kart oyunu gibi çalışmalar yaptım. GitHub profilimden(https://github.com/hgorkemy) detaylarını inceleyebilirsiniz."
   },
 
   {
-    patterns: ["github", "profil linki", "portföy", "portfolio", "projeleri nerede görebilirim"],
+    patterns: [
+      "github",
+      "profil linki",
+      "portföy",
+      "portfolio",
+      "projeleri nerede görebilirim",
+      "link",
+      "sosyal medya",
+      "iletişim",
+      "contact",
+      "linkedin"
+    ],
     answer:
       "GitHub profilim: https://github.com/hgorkemy — projelerimin kodlarını ve gelişim sürecimi oradan görebilirsiniz."
   },
@@ -188,6 +306,22 @@ const QA_PAIRS = [
     patterns: ["maaş", "maas", "maaş beklentisi", "ücret", "salary", "salary expectation"],
     answer:
       "Maaş beklentim pozisyona ve paket detaylarına bağlı olarak esnek. Önceliğim öğrenebileceğim ve değer katabileceğim bir ekipte yer almak; rakamsal konuyu süreç ilerledikçe konuşmayı tercih ederim."
+  },
+
+  {
+    patterns: [
+      "hobi",
+      "hobiler",
+      "ilgi alanları",
+      "ilgi alanlarin",
+      "boş zaman",
+      "bos zaman",
+      "serbest zaman",
+      "neler yaparsın",
+      "iş dışında"
+    ],
+    answer:
+      "Spor yapmak zihinsel sağlığım için önemli. Futbol ve basketbol oynamayı seviyorum, haftada en az üç kez koşuya çıkıyorum. Bunun dışında okumayı seviyorum; bilim, felsefe, dinler tarihi ve evrimsel biyoloji gibi konuları araştırıyorum. Ayrıca küçük bir çizgi roman koleksiyonum var."
   }
 ];
 
@@ -206,7 +340,12 @@ const QA_PAIRS_EN = [
       "overview",
       "cv summary",
       "resume summary",
-      "who is gorkem"
+      "who is gorkem",
+      "gorkem",
+      "halil gorkem",
+      "yourself",
+      "background",
+      "brief intro"
     ],
     answer:
       "I'm Görkem, a Computer Engineering student. I have built projects using Java, JavaScript/React, Python, and Flutter. I also completed a 6-month Erasmus experience at THWS in Germany, and I want to shape my career around Data Science / Machine Learning."
@@ -223,10 +362,17 @@ const QA_PAIRS_EN = [
       "major",
       "department",
       "which university",
-      "academic"
+      "academic",
+      "school",
+      "studying",
+      "study",
+      "student",
+      "izmir",
+      "courses",
+      "coursework"
     ],
     answer:
-      "I'm an undergraduate Computer Engineering student at Izmir Universisty of Economics. I’ve taken core CS courses such as data structures, algorithms,OOP, software development, and web technologies. I also studied at THWS in Germany for 6 months via Erasmus, focusing on Data Science / Machine Learning oriented courses and projects."
+      "I'm an undergraduate Computer Engineering student at Izmir Universisty of Economics. I've taken core CS courses such as data structures, algorithms,OOP, software development, and web technologies. I also studied at THWS in Germany for 6 months via Erasmus, focusing on Data Science / Machine Learning oriented courses and projects."
   },
 
   // ERASMUS & THWS
@@ -240,7 +386,13 @@ const QA_PAIRS_EN = [
       "erasmus experience",
       "erasmus duration",
       "how long was erasmus",
-      "how many months erasmus"
+      "how many months erasmus",
+      "germany",
+      "abroad",
+      "study abroad",
+      "exchange program",
+      "exchange",
+      "international experience"
     ],
     answer:
       "I studied at THWS (Technische Hochschule Würzburg-Schweinfurt) in Germany for 6 months through the Erasmus program. During this period, I improved both technically (especially DS/ML-related courses) and personally in terms of culture and language. Working in an international environment also strengthened my teamwork and communication skills."
@@ -254,10 +406,16 @@ const QA_PAIRS_EN = [
       "location",
       "where are you based",
       "which city",
-      "which country"
+      "which country",
+      "hometown",
+      "city",
+      "country",
+      "based",
+      "live",
+      "living"
     ],
     answer:
-      "I'm originally from Aydın, and I live in İzmir for my education. I also had a 6-month Erasmus experience at THWS in Germany. I’m aiming to build my career in an international environment in Europe."
+      "I'm originally from Aydın, and I live in İzmir for my education. I also had a 6-month Erasmus experience at THWS in Germany. I'm aiming to build my career in an international environment in Europe."
   },
 
   // LANGUAGES
@@ -288,10 +446,16 @@ const QA_PAIRS_EN = [
       "react",
       "flutter",
       "python",
-      "skills"
+      "skills",
+      "technical skills",
+      "coding",
+      "programming",
+      "languages",
+      "tools",
+      "git"
     ],
     answer:
-      "I mainly work with Java, Dart/Flutter, and Python. I have a strong foundation in data structures and algorithms through coursework and projects. I use Git & GitHub for version control, and I’ve started working with basic ML libraries in Python for Data Science."
+      "I mainly work with Java, Dart/Flutter, and Python. I have a strong foundation in data structures and algorithms through coursework and projects. I use Git & GitHub for version control, and I've started working with basic ML libraries in Python for Data Science."
   },
 
   // DATA SCIENCE & ML GOALS
@@ -321,7 +485,14 @@ const QA_PAIRS_EN = [
       "where do you see yourself",
       "5 years",
       "long term goal",
-      "your goals"
+      "your goals",
+      "goals",
+      "career",
+      "ambition",
+      "ambitions",
+      "aspirations",
+      "plan",
+      "plans"
     ],
     answer:
       "In the short term, I aim to do an internship in Germany and take part in impactful projects in Data Science or software development. In the long term, I want to specialize in Data Science / Machine Learning and work on data-driven products in an international company."
@@ -334,10 +505,14 @@ const QA_PAIRS_EN = [
       "intern",
       "experience",
       "work experience",
-      "do you have experience"
+      "do you have experience",
+      "job experience",
+      "professional experience",
+      "working experience",
+      "worked"
     ],
     answer:
-      "Throughout my university and Erasmus periods, I developed various projects. Currently, I’m aiming for an internship in Germany focused on Data Science or software development. I value taking responsibility in team environments and being involved in real product development processes."
+      "Throughout my university and Erasmus periods, I developed various projects. Currently, I'm aiming for an internship in Germany focused on Data Science or software development. I value taking responsibility in team environments and being involved in real product development processes."
   },
 
   // STRENGTHS
@@ -401,10 +576,16 @@ const QA_PAIRS_EN = [
       "what have you done",
       "project examples",
       "github projects",
-      "which projects"
+      "which projects",
+      "project",
+      "portfolio",
+      "built",
+      "developed",
+      "created",
+      "work samples"
     ],
     answer:
-      "I’ve built projects in both web and mobile areas. For example, a Flutter-based library app, an ML-based image completion project, and various data structures implementations for coursework. You can check my GitHub profile(https://github.com/hgorkemy) for more details."
+      "I've built projects in both web and mobile areas. For example, a Flutter-based library app, an ML-based image completion project, and various data structures implementations for coursework. You can check my GitHub profile(https://github.com/hgorkemy) for more details."
   },
 
   // GITHUB & PORTFOLIO
@@ -414,7 +595,14 @@ const QA_PAIRS_EN = [
       "profile link",
       "portfolio",
       "where can i see your projects",
-      "project links"
+      "project links",
+      "link",
+      "links",
+      "contact",
+      "linkedin",
+      "social media",
+      "code samples",
+      "repository"
     ],
     answer:
       "I keep most of my projects on GitHub. You can review my code style, commit habits, and project details on my GitHub profile: https://github.com/hgorkemy"
