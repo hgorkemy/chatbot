@@ -4,8 +4,31 @@ const userInput = document.getElementById("user-input");
 const langBtn = document.getElementById("lang-toggle");
 const pageTitle = document.getElementById("page-title");
 const pageSubtitle = document.getElementById("page-subtitle");
+const suggestionsContainer = document.getElementById("suggestions");
 
 let currentLang = "en"; // default EN
+
+// Soru önerileri
+const SUGGESTIONS = {
+  en: [
+    "Introduce yourself",
+    "Education",
+    "Projects",
+    "Technical skills",
+    "Career goals",
+    "Erasmus experience",
+    "Strengths"
+  ],
+  tr: [
+    "Kendini tanıt",
+    "Eğitim",
+    "Projeler",
+    "Teknik beceriler",
+    "Kariyer hedefleri",
+    "Erasmus deneyimi",
+    "Güçlü yanlar"
+  ]
+};
 
 const UI_TEXT = {
   en: {
@@ -48,12 +71,14 @@ function normalize(text) {
 const STOP_WORDS = new Set([
   // TR soru ekleri / bağlaçlar
   "mi", "mı", "mu", "mü", "misin", "mısın", "musun", "müsün", "misiniz", "mısınız", "musunuz", "müsünüz",
-  "ne", "neden", "nasıl", "kaç", "kim", "kimi", "kime", "kimin", "nerede", "nerden", "nereye",
-  "ve", "veya", "ya", "de", "da", "ki", "bir", "bana", "bize",
+  "ne", "neden", "nasıl", "kaç", "kimi", "kime", "kimin", "nerden", "nereye",
+  "ve", "veya", "ya", "de", "da", "ki", "bir", "bana", "bize", "ben", "sen", "bu", "şu", "o",
+  "var", "yok", "evet", "hayır", "daha", "çok", "az", "gibi", "için", "ile", "olan", "olarak",
 
   // EN stopwords (hafif)
   "a", "an", "the", "is", "are", "am", "do", "does", "did", "what", "why", "how", "where", "who", "whom", "when",
-  "and", "or", "to", "of", "in", "on", "for", "with"
+  "and", "or", "to", "of", "in", "on", "for", "with", "can", "could", "would", "should", "will",
+  "your", "you", "me", "my", "i", "we", "us", "our", "tell", "about", "please", "thanks"
 ]);
 
 function tokenize(text) {
@@ -62,15 +87,20 @@ function tokenize(text) {
   return t.split(" ").filter((w) => w.length >= 2 && !STOP_WORDS.has(w));
 }
 
-// çok basit TR ek kesme (esneklik için)
+// Türkçe kelime kökü çıkarma (geliştirilmiş)
 function stemTr(w) {
+  if (w.length < 4) return w;
+
+  // Uzun eklerden kısalara doğru sırala
   const suffixes = [
-    "ların","lerin","ları","leri","lar","ler",
-    "nın","nin","nun","nün",
-    "ın","in","un","ün",
-    "im","ım","um","üm",
-    "m","n","y"
+    "lerinden", "larından", "lerine", "larına", "leriyle", "larıyla",
+    "ların", "lerin", "ları", "leri", "lar", "ler",
+    "inde", "ında", "ine", "ina", "den", "dan", "ten", "tan",
+    "nın", "nin", "nun", "nün", "ını", "ini", "unu", "ünü",
+    "ın", "in", "un", "ün", "im", "ım", "um", "üm",
+    "de", "da", "te", "ta", "ye", "ya", "e", "a"
   ];
+
   for (const s of suffixes) {
     if (w.endsWith(s) && w.length > s.length + 2) {
       return w.slice(0, -s.length);
@@ -88,45 +118,95 @@ function getActivePairs() {
   return currentLang === "en" ? QA_PAIRS_EN : QA_PAIRS;
 }
 
-// PATTERN eşleşmesi:
-// - Tek kelime eşleşmesi YETMESİN (Aliyi tanıt gibi)
-// - En az 2 anlamlı kelime match olsun ya da pattern 1 kelimelikse direkt match olsun.
+// PATTERN eşleşmesi (geliştirilmiş):
+// - Hem tam eşleşme hem de kısmi eşleşme destekleniyor
+// - Tek kelimelik pattern ve sorgularda özel işlem
 function matchScore(questionTokens, patternText) {
   const pTokens = tokenize(patternText).map(normalizeTokenForLang);
   const qTokens = questionTokens;
 
-  if (pTokens.length === 0) return 0;
+  if (pTokens.length === 0 || qTokens.length === 0) return 0;
 
   let matched = 0;
-  const used = new Array(qTokens.length).fill(false);
+  let partialBonus = 0;
+  const usedQ = new Array(qTokens.length).fill(false);
+  const usedP = new Array(pTokens.length).fill(false);
 
-  for (const pt of pTokens) {
-    for (let i = 0; i < qTokens.length; i++) {
-      if (used[i]) continue;
-      const qt = qTokens[i];
+  // İlk geçiş: tam eşleşmeler
+  for (let pi = 0; pi < pTokens.length; pi++) {
+    const pt = pTokens[pi];
+    for (let qi = 0; qi < qTokens.length; qi++) {
+      if (usedQ[qi]) continue;
+      const qt = qTokens[qi];
 
       if (qt === pt) {
-        used[i] = true;
-        matched++;
-        break;
-      }
-      // kısmi eşleşme: beklenti ~ beklentilerin / expectation ~ expectations
-      const minLen = Math.min(qt.length, pt.length);
-      if (minLen >= 5 && (qt.includes(pt) || pt.includes(qt))) {
-        used[i] = true;
+        usedQ[qi] = true;
+        usedP[pi] = true;
         matched++;
         break;
       }
     }
   }
 
-  // 1 kelimelik pattern ise (örn: "github", "erasmus") tek match yeterli
-  if (pTokens.length === 1) return matched === 1 ? 1 : 0;
+  // İkinci geçiş: kısmi eşleşmeler (henüz eşleşmemişler için)
+  for (let pi = 0; pi < pTokens.length; pi++) {
+    if (usedP[pi]) continue;
+    const pt = pTokens[pi];
 
-  // 2+ kelimelik patternlerde tek match yeterli değil
-  if (matched >= 2) return matched / pTokens.length;
+    for (let qi = 0; qi < qTokens.length; qi++) {
+      if (usedQ[qi]) continue;
+      const qt = qTokens[qi];
 
-  return 0;
+      // Kısmi eşleşme: en az 4 karakter ortak kök (yanlış pozitif önlemek için)
+      const minLen = Math.min(qt.length, pt.length);
+      if (minLen >= 4) {
+        // Başlangıç eşleşmesi (daha güçlü)
+        const commonPrefix = getCommonPrefixLength(qt, pt);
+        if (commonPrefix >= 4) {
+          usedQ[qi] = true;
+          usedP[pi] = true;
+          matched += 0.8; // kısmi eşleşme biraz daha düşük puan
+          break;
+        }
+        // İçerme kontrolü (daha zayıf)
+        if (minLen >= 5 && (qt.includes(pt) || pt.includes(qt))) {
+          usedQ[qi] = true;
+          usedP[pi] = true;
+          matched += 0.6;
+          break;
+        }
+      }
+    }
+  }
+
+  // Tek kelimelik pattern: direkt eşleşme yeterli
+  if (pTokens.length === 1) {
+    return matched >= 0.6 ? 1 : 0;
+  }
+
+  // Kullanıcı tek kelime sormuşsa ve pattern'de o kelime varsa
+  if (qTokens.length === 1 && matched >= 0.6) {
+    return 0.7; // tek kelime sorgusu için makul skor
+  }
+
+  // Çoklu kelime: oransal skor
+  const score = matched / pTokens.length;
+
+  // En az 1 tam eşleşme varsa bonus
+  if (matched >= 1) {
+    return Math.min(score + 0.1, 1);
+  }
+
+  return score;
+}
+
+// Ortak başlangıç uzunluğunu bul
+function getCommonPrefixLength(a, b) {
+  let i = 0;
+  while (i < a.length && i < b.length && a[i] === b[i]) {
+    i++;
+  }
+  return i;
 }
 
 function findBestAnswer(question) {
@@ -150,12 +230,42 @@ function findBestAnswer(question) {
   }
 
   // Eşik: alakasız sorularda cevap seçmesin
-  const THRESHOLD = 0.45;
+  // Tek kelimelik sorularda daha düşük eşik
+  const THRESHOLD = qTokens.length === 1 ? 0.35 : 0.4;
   if (!bestQa || best < THRESHOLD) {
     return UI_TEXT[currentLang].outOfScope;
   }
 
   return bestQa.answer;
+}
+
+// Soru önerilerini render et
+function renderSuggestions() {
+  if (!suggestionsContainer) return;
+
+  suggestionsContainer.innerHTML = "";
+  const suggestions = SUGGESTIONS[currentLang] || [];
+
+  suggestions.forEach((text) => {
+    const btn = document.createElement("button");
+    btn.className = "suggestion-btn";
+    btn.textContent = text;
+    btn.addEventListener("click", () => {
+      handleQuestion(text);
+    });
+    suggestionsContainer.appendChild(btn);
+  });
+}
+
+// Soruyu işle (hem form hem öneri için)
+function handleQuestion(text) {
+  if (!text.trim()) return;
+
+  addMessage(text, "user");
+  userInput.value = "";
+
+  const answer = findBestAnswer(text);
+  setTimeout(() => addMessage(answer, "bot"), 150);
 }
 
 function applyLanguage(lang) {
@@ -169,6 +279,7 @@ function applyLanguage(lang) {
   lang === "en" ? "Türkçe sohbet için basın" : "Press for ENG";
 
   addMessage(UI_TEXT[lang].greet, "bot");
+  renderSuggestions();
 }
 
 if (langBtn) {
@@ -179,14 +290,7 @@ if (langBtn) {
 
 chatForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const text = userInput.value.trim();
-  if (!text) return;
-
-  addMessage(text, "user");
-  userInput.value = "";
-
-  const answer = findBestAnswer(text);
-  setTimeout(() => addMessage(answer, "bot"), 150);
+  handleQuestion(userInput.value.trim());
 });
 
 // default EN
